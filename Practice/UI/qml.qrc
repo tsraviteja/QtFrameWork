@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Components/qmldir</file>
+        <file>Components/CustomTextField.qml</file>
+        <file>Keyboard/qmldir</file>
+        <file>Keyboard/CustomKeyboard.qml</file>
+        <file>Constants/qmldir</file>
+        <file>Constants/CustomKeyboardConstant.qml</file>
+    </qresource>
+</RCC>
