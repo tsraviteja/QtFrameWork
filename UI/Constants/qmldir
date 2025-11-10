@@ -1,0 +1,2 @@
+module UI.Constants
+singleton CustomKeyboardConstant 1.0 CustomKeyboardConstant.qml
