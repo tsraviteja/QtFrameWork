@@ -10,10 +10,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
 
-    engine.addImportPath(QCoreApplication::applicationDirPath() + "/../../");
-    // auto data = QResource::registerResource(QStringLiteral("/../../UI/qml.qrc"));
-    // std::cout << "Data is :" << data << std::endl;
-    // engine.addImportPath("qrc:/UI");
+    engine.addImportPath(QCoreApplication::applicationDirPath() + "/../../../");
     const QUrl url(QStringLiteral("qrc:/main.qml"));
 
     QObject::connect(

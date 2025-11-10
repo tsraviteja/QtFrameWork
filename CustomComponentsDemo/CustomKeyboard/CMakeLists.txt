@@ -17,7 +17,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Find Qt6 components
 find_package(Qt6 6.2 COMPONENTS Quick Core REQUIRED)
 
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../UI ${CMAKE_BINARY_DIR}/UI)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../UI ${CMAKE_BINARY_DIR}/UI)
 
 # Define sources and headers
 set(SOURCES

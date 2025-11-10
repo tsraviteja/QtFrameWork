@@ -14,6 +14,11 @@ Window
     {
         id: labeledText
         text: "Text Field :"
+        font
+        {
+           italic: true
+           capitalization: Font.AllUppercase
+        }
         anchors.horizontalCenter: root.left
     }
 
