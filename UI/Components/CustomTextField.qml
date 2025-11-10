@@ -7,7 +7,7 @@ Rectangle
     width: parent.width / 2
     height: 45
 
-    property string textFieldContent:textField.text
+    property string textFieldContent: textField.text
     property string placeholder: ""
     
     function updateTextField(content)
@@ -23,11 +23,13 @@ Rectangle
         }
         else
         {
-            textField.text += content
+            const position = textField.cursorPosition
+            textField.insert(position, content)
         }
     }
     
-    Loader{
+    Loader
+    {
         id: loadKeyboard
         
         onLoaded:
@@ -43,7 +45,6 @@ Rectangle
         width: customTextField.width
         height: 45
         placeholderText: placeholder
-        property bool iskeyboardLoaded : false
         onPressed: 
         {
             loadKeyboard.source = "../Keyboard/CustomKeyboard.qml"

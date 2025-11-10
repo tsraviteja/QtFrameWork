@@ -3,7 +3,6 @@ import QtQuick 2.15
 
 QtObject 
 {
-
     readonly property int buttonWidthOne: 40
     readonly property int buttonWidthTwo: 61
     readonly property int buttonWidthThree: 76

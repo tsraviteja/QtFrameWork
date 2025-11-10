@@ -17,6 +17,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Find Qt6 components
 find_package(Qt6 6.2 COMPONENTS Quick Core REQUIRED)
 
+# Include the UI module in the build
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../UI ${CMAKE_BINARY_DIR}/UI)
 
 # Define sources and headers
@@ -36,4 +37,4 @@ qt_add_executable(keyboard
 )
 
 # Link Qt libraries
-target_link_libraries(keyboard PRIVATE Qt6::Core Qt6::Quick)
+target_link_libraries(keyboard PRIVATE Qt6::Core Qt6::Quick UIResources)

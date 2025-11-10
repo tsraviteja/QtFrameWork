@@ -11,7 +11,8 @@ Rectangle
     border.width: 2
     color: "green"
 
-    MouseArea{
+    MouseArea
+    {
         anchors.fill:parent
     }
 
@@ -44,8 +45,8 @@ Rectangle
     {
         id: numberBlock
         objectName: "numberBlock"
-        spacing:2
-        leftPadding:1
+        spacing: 2
+        leftPadding: 1
         Repeater
         {
             model: rowNumberContent
@@ -80,14 +81,15 @@ Rectangle
             }
         }
     }
+
     Row
     {
         id: secondRow
         anchors.top: numberBlock.bottom
         anchors.topMargin: 2
         objectName: "secondRow"
-        spacing:2
-        leftPadding:1
+        spacing: 2
+        leftPadding: 1
         Repeater
         {
             model: rowOneContent
@@ -122,14 +124,14 @@ Rectangle
             }
         }
     }
-    
+
     Row
     {
         id: thirdRow
         anchors.top: secondRow.bottom
         anchors.topMargin: 2
         objectName: "thirdRow"
-        spacing:2
+        spacing: 2
         leftPadding: shiftTextId.text === "⇧" ? 25 : 0
         Repeater
         {
@@ -166,16 +168,15 @@ Rectangle
             }
         }
     }
-    
-    
+
     Row
     {
         id: fourthRow
         anchors.top: thirdRow.bottom
         anchors.topMargin: 2
         objectName: "fouthRow"
-        spacing:2
-        leftPadding:1
+        spacing:2 
+        leftPadding: 1
         Rectangle
         {
             width: 61
@@ -191,27 +192,28 @@ Rectangle
                 anchors.centerIn: parent
             }
             MouseArea
+            {
+                anchors.fill: parent
+                onPressed:
                 {
-                    anchors.fill: parent
-                    onPressed:
+                    parent.color = "skyblue"
+                    if (shiftTextId.text === "⇧")
                     {
-                        parent.color = "skyblue"
-                        if (shiftTextId.text === "⇧")
-                        {
-                            isCapitalized = !isCapitalized;
-                        }
-                        else
-                        {
-                            isFirstSymbols = !isFirstSymbols;
-                            shiftTextId.text = shiftTextId.text === "1/2" ? "2/2" : "1/2";
-                        }
+                        isCapitalized = !isCapitalized;
                     }
-                    onReleased:
+                    else
                     {
-                        parent.color = "white"
+                        isFirstSymbols = !isFirstSymbols;
+                        shiftTextId.text = shiftTextId.text === "1/2" ? "2/2" : "1/2";
                     }
                 }
+                onReleased:
+                {
+                    parent.color = "white"
+                }
+            }
         }
+
         Repeater
         {
             model: rowThreeContent
@@ -246,6 +248,7 @@ Rectangle
                 }
             }
         }
+
         Rectangle
         {
             width: 61
@@ -261,30 +264,29 @@ Rectangle
                 anchors.centerIn: parent
             }
             MouseArea
+            {
+                anchors.fill: parent
+                onPressed:
                 {
-                    anchors.fill: parent
-                    onPressed:
-                    {
-                        parent.color = "skyblue"
-                        addTextFieldContent(backTextId.text)
-                    }
-                    onReleased:
-                    {
-                        parent.color = "white"
-                    }
+                    parent.color = "skyblue"
+                    addTextFieldContent(backTextId.text)
                 }
+                onReleased:
+                {
+                    parent.color = "white"
+                }
+            }
         }
     }
-    
-    
+
     Row
     {
         id: fithRow
         anchors.top: fourthRow.bottom
         anchors.topMargin: 2
         objectName: "fithRow"
-        spacing:2
-        leftPadding:1
+        spacing: 2
+        leftPadding: 1
         Rectangle
         {
             width: 76
@@ -300,37 +302,38 @@ Rectangle
                 anchors.centerIn: parent
             }
             MouseArea
+            {
+                anchors.fill: parent
+                onPressed:
                 {
-                    anchors.fill: parent
-                    onPressed:
+                    parent.color = "skyblue"
+                    if (specialKeyTextId.text === "!#1")
                     {
-                        parent.color = "skyblue"
-                        if (specialKeyTextId.text === "!#1")
+                        isFirstSymbols = true
+                        if (isCapitalized)
                         {
-                            isFirstSymbols = true
-                            if (isCapitalized)
-                            {
-                                specialKeyTextId.text = "ABC"
-                            }
-                            else
-                            {
-                                specialKeyTextId.text = "abc"
-                            }
-                            shiftTextId.text = "1/2"
+                            specialKeyTextId.text = "ABC"
                         }
                         else
                         {
-                            shiftTextId.text = "⇧"
-                            specialKeyTextId.text = "!#1"
-                            isFirstSymbols = false
+                            specialKeyTextId.text = "abc"
                         }
+                        shiftTextId.text = "1/2"
                     }
-                    onReleased:
+                    else
                     {
-                        parent.color = "white"
+                        shiftTextId.text = "⇧"
+                        specialKeyTextId.text = "!#1"
+                        isFirstSymbols = false
                     }
                 }
+                onReleased:
+                {
+                    parent.color = "white"
+                }
+            }
         }
+
         Repeater
         {
             model: [
